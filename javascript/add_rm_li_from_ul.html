@@ -23,49 +23,53 @@
 
 	<script type="text/javascript">
 
+		// Generic function to add evento to an element
+		var addEvent = function (element, targetSelector, targetEvent, callback) {
+			element.addEventListener(targetEvent, function (event) {
+				var target = event.toElement || event.srcTarget || event.target || event.srcElement;
+				if ( target.matches(targetSelector) ) {
+					callback(target, event);
+				}
+			});
+		};
+
 		var ul = document.getElementById('mylist');
 
-		ul.addEventListener('click', function (event) {
-		  var target = event.toElement || event.srcTarget || event.target || event.srcElement;
-
-		  if (target.matches('button')){
-		  	// Child will be the <li> tag selected
-		    var child = target.parentNode;
-		    ul.removeChild(child)  
-		  }
-		  
+		addEvent(ul, 'button', 'click', function (element) {
+			// Cancel the previous event
+			event.preventDefault();
+			var child = element.parentNode;
+		    ul.removeChild(child)
 		});
 
+		
 		var buttonAdd = document.querySelector('.add');
 
-		buttonAdd.addEventListener('click', function (event) {
-		  var target = event.toElement || event.srcTarget || event.target || event.srcElement;
-		 
-	    // Get next number
-	    var count = ul.querySelectorAll('li').length + 1
-	    
-	    var newli = document.createElement('li');
-	    newli.setAttribute('class', 'list-item');
-	    
-	    var newa = document.createElement('a');
-	    newa.setAttribute('href', '#');
-	    newa.setAttribute('id', 'item-' + count);
-	    
-	    var text = document.createTextNode('Item ' + count);
-	    newa.appendChild(text);
-	    
-	    newli.appendChild(newa);
-	    
-	    var butt = document.createElement('button');
-	    var text = document.createTextNode('Del');
-	    butt.appendChild(text);
-	    
-	    newli.appendChild(butt);
-	    
-	    ul.appendChild(newli);
-		 
+		addEvent(buttonAdd, '.add', 'click', function (element) {
+			// Get next number
+		    var count = ul.querySelectorAll('li').length + 1
+		    
+		    var newli = document.createElement('li');
+		    newli.setAttribute('class', 'list-item');
+		    
+		    var newa = document.createElement('a');
+		    newa.setAttribute('href', '#');
+		    newa.setAttribute('id', 'item-' + count);
+		    
+		    var text = document.createTextNode('Item ' + count);
+		    newa.appendChild(text);
+		    
+		    newli.appendChild(newa);
+		    
+		    var butt = document.createElement('button');
+		    var text = document.createTextNode('Del');
+		    butt.appendChild(text);
+		    
+		    newli.appendChild(butt);
+		    
+		    ul.appendChild(newli);
 		});
-
+		
 	</script>
 </body>
 </html>
