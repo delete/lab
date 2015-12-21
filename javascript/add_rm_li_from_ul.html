@@ -47,16 +47,24 @@
 
 		addEvent(buttonAdd, '.add', 'click', function (element) {
 			// Get next number
-		    var count = ul.querySelectorAll('li').length + 1
-		    
+		    var count = ul.querySelectorAll('li')
+
+		    var length = count.length
+
+		    // Get id from <a id=""> and parse to INT base 10
+		    id = parseInt(count[length - 1].children[0].id.split('-')[1], 10);
+
+		    // Get next item
+		    id += 1
+
 		    var newli = document.createElement('li');
 		    newli.setAttribute('class', 'list-item');
 		    
 		    var newa = document.createElement('a');
 		    newa.setAttribute('href', '#');
-		    newa.setAttribute('id', 'item-' + count);
+		    newa.setAttribute('id', 'item-' + id);
 		    
-		    var text = document.createTextNode('Item ' + count);
+		    var text = document.createTextNode('Item ' + id);
 		    newa.appendChild(text);
 		    
 		    newli.appendChild(newa);
