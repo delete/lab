@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<ul class="list" id="mylist">
+	  <li class="list-item">
+	    <a id="item-1" href="#">Item 1</a> 
+	    <button>Del</button>
+	  </li>
+	  <li class="list-item">
+	    <a id="item-2" href="#">Item 2</a>
+	    <button>Del</button>
+	  </li>
+	  <li class="list-item">
+	    <a id="item-3" href="#">Item 3</a>
+	    <button>Del</button>
+	  </li>
+	</ul>
+	<button class="add">Add</button>
+
+	<script type="text/javascript">
+
+		var ul = document.getElementById('mylist');
+
+		ul.addEventListener('click', function (event) {
+		  var target = event.toElement || event.srcTarget || event.target || event.srcElement;
+
+		  if (target.matches('button')){
+		  	// Child will be the <li> tag selected
+		    var child = target.parentNode;
+		    ul.removeChild(child)  
+		  }
+		  
+		});
+
+		var buttonAdd = document.querySelector('.add');
+
+		buttonAdd.addEventListener('click', function (event) {
+		  var target = event.toElement || event.srcTarget || event.target || event.srcElement;
+		 
+	    // Get next number
+	    var count = ul.querySelectorAll('li').length + 1
+	    
+	    var newli = document.createElement('li');
+	    newli.setAttribute('class', 'list-item');
+	    
+	    var newa = document.createElement('a');
+	    newa.setAttribute('href', '#');
+	    newa.setAttribute('id', 'item-' + count);
+	    
+	    var text = document.createTextNode('Item ' + count);
+	    newa.appendChild(text);
+	    
+	    newli.appendChild(newa);
+	    
+	    var butt = document.createElement('button');
+	    var text = document.createTextNode('Del');
+	    butt.appendChild(text);
+	    
+	    newli.appendChild(butt);
+	    
+	    ul.appendChild(newli);
+		 
+		});
+
+	</script>
+</body>
+</html>
