@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<style type="text/css">
+		.anger {
+		   color: red;
+		}
+
+		.calm {
+		   color: green;
+		}
+	</style>
+
+
+	<button id="changeColor">Change background color</button>
+
+
+	<p>
+		<button id="increase">INCREASE</button>
+		<button id="decrease">DECREASE</button>
+	</p>
+
+	<p id="textHere" class="calm">I'm Calm</p>
+
+	<button id="clique">Click</button>
+
+
+	<script type="text/javascript">
+
+		// Generic function to add evento to an element
+		var addEvent = function (element, targetSelector, targetEvent, callback) {
+					element.addEventListener(targetEvent, function (event) {
+						var target = event.toElement || event.srcTarget || event.target || event.srcElement;
+						if ( target.matches(targetSelector) ) {
+							callback(target, event);
+						}
+					});
+				};
+
+		/* --------------------------------------------------------------- */
+		//
+		// Change background color
+		//
+
+		var btBgColor = document.getElementById('changeColor');
+
+		addEvent(btBgColor, '#changeColor', 'click', function (element) {
+		   var colors = ['red', 'yellow', 'black', 'white', 'pink', 'blue'];
+		   
+		   document.body.style.background = colors[Math.floor(Math.random() * colors.length)];
+		});
+
+		/* --------------------------------------------------------------- */
+		//
+		// Change class and text from an element
+		//
+
+		var textHere = document.getElementById('textHere');
+
+		var btChange = document.getElementById('clique');
+
+		addEvent(btChange, '#clique', 'click', function (element) {
+		   var att = textHere.getAttribute('class');
+		   
+		   if ( att === 'anger' ) {
+		      classe = 'calm';
+		      text = 'I\'m Calm';
+		   } else {
+		      classe = 'anger';
+		      text = 'I\'m Anger';
+		   }
+		   textHere.setAttribute('class', classe);
+		   textHere.innerHTML = text;
+		});
+
+		/* --------------------------------------------------------------- */
+		//
+		// Increase and Decrease font size from a text
+		//
+
+
+		var btIncrease = document.getElementById('increase');
+		var btDecrease = document.getElementById('decrease');
+
+		addEvent(btIncrease, '#increase', 'click', function (element) {
+			var textHere = document.getElementById('textHere');
+			
+			if ( !textHere.style.fontSize ) {
+				textHere.style.fontSize = '15px';
+			} 
+			
+			textHere.style.fontSize = parseInt(textHere.style.fontSize, 10) + 5 + 'px';
+		});
+
+
+		addEvent(btDecrease, '#decrease', 'click', function (element) {
+			if ( !textHere.style.fontSize ) {
+				textHere.style.fontSize = '10px';
+			} 
+			textHere.style.fontSize = parseInt(textHere.style.fontSize, 10) - 5 + 'px';
+		});
+		
+	</script>
+
+
+</body>
+</html>
+
+
