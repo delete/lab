@@ -50,12 +50,17 @@
 
 		addEvent(buttonAdd, '.add', 'click', function (element) {
 
-		    var count = ul.querySelectorAll('li')
+		    var id = 0;
+		    
+		    var li = ul.querySelectorAll('li')
 
-		    var length = count.length
+		    var length = li.length
 
-		    // Get id from <a id=""> and parse to INT base 10
-		    id = parseInt(count[length - 1].children[0].id.split('-')[1], 10);
+
+		    if ( length ) {
+			    // Get id from <a id=""> and parse to INT base 10
+			    id = parseInt(li[length - 1].children[0].id.split('-')[1], 10);
+		    }
 
 		    // Get next item
 		    id += 1
