@@ -49,9 +49,8 @@
 		var btBgColor = document.getElementById('changeColor');
 
 		addEvent(btBgColor, '#changeColor', 'click', function (element) {
-		   var colors = ['red', 'yellow', 'black', 'white', 'pink', 'blue'];
 		   
-		   document.body.style.background = colors[Math.floor(Math.random() * colors.length)];
+		   document.body.style.background = '#' + Math.random().toString(16).slice(2, 8);
 		});
 
 		/* --------------------------------------------------------------- */
