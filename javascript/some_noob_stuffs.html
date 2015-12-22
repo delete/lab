@@ -15,6 +15,9 @@
 		}
 	</style>
 
+	<p>
+		Clock: <span id="cur_hour"></span>:<span id="cur_min"></span>:<span id="cur_sec"></span>
+	</p>
 
 	<button id="changeColor">Change background color</button>
 
@@ -102,6 +105,23 @@
 			} 
 			textHere.style.fontSize = parseInt(textHere.style.fontSize, 10) - 5 + 'px';
 		});
+
+		/* --------------------------------------------------------------- */
+		//
+		// Clock
+		//
+
+		(function time() {
+			var now = new Date()
+			var cur_hour = document.getElementById('cur_hour');
+			cur_hour.innerHTML = now.getHours();
+			var cur_min = document.getElementById('cur_min');
+			cur_min.innerHTML = now.getMinutes();
+			var cur_sec = document.getElementById('cur_sec');
+			cur_sec.innerHTML = now.getSeconds();
+			
+			t=setTimeout(function(){time()}, 500);
+		}());
 		
 	</script>
 
