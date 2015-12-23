@@ -1,0 +1,24 @@
+.container {
+	text-align: center;
+	font-size: 30px;
+}
+
+.player {
+	display: inline-block;
+	width: 200px;
+	height: 530px;
+	vertical-align: top;
+
+}
+
+.win {
+	color: blue;
+}
+
+.lose {
+	color: red;
+}
+
+.tie {
+	color: green;
+}
