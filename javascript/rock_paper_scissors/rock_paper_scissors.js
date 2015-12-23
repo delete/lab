@@ -71,11 +71,6 @@ function setResultMessage (text, result) {
 	}
 };
 
-function setText (text) {
-	var message = document.getElementById('message');
-	message.innerHTML = text;
-};
-
 function defaultEnv () {
 	var playerHand = document.getElementById('right_hand');
 	playerHand.setAttribute('src', 'images/right_fist.png');
