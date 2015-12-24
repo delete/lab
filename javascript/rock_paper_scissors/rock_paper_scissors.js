@@ -1,4 +1,4 @@
-var choices = {
+var CHOICES = {
 	'rock': 'images/rock.png',
 	'paper': 'images/paper.jpg',
 	'scissors': 'images/scissors.png'
@@ -26,7 +26,6 @@ function getComputerChoice () {
 	return options[Math.floor(Math.random()*3)];
 };
 
-
 function displayResults (playerChoice, compChoice) {
 		
 		changeImages(playerChoice, compChoice);
@@ -36,6 +35,7 @@ function displayResults (playerChoice, compChoice) {
 
 		} else if ( (playerChoice === 'rock' && compChoice === 'scissors') || (playerChoice === 'paper' && compChoice === 'rock') || (playerChoice === 'scissors' && compChoice === 'paper')) {
 			setResultMessage('You Win!', 'win');
+
 		} else {
 			setResultMessage('You Lose!', 'lose');
 		}
@@ -44,10 +44,10 @@ function displayResults (playerChoice, compChoice) {
 
 function changeImages (playerChoice, compChoice) {
 	var playerHand = document.getElementById('right_hand');
-	playerHand.setAttribute('src', choices[playerChoice]);
+	playerHand.setAttribute('src', CHOICES[playerChoice]);
 
 	var compHand = document.getElementById('left_hand');
-	compHand.setAttribute('src', choices[compChoice]);
+	compHand.setAttribute('src', CHOICES[compChoice]);
 };
 
 function setResultMessage (text, result) {
@@ -58,14 +58,17 @@ function setResultMessage (text, result) {
 			message.setAttribute('class', 'tie');
 			message.innerHTML = text;
 			break;
+
 		case 'win':
 			message.setAttribute('class', 'win');
 			message.innerHTML = text;
 			break;
+
 		case 'lose':
 			message.setAttribute('class', 'lose');
 			message.innerHTML = text;
 			break;
+			
 		default:
 			message.setAttribute('class', '');
 	}
