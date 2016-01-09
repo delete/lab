@@ -1,7 +1,7 @@
 ###Here will be store "how to"s and some Dockerfiles/docker-compose examples.
 
 
-##Run MongoDb server and client with docker in different containers.
+- Run MongoDb server and client with docker in different containers.
 
 
 **Server**
