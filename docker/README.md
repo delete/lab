@@ -1,5 +1,13 @@
 # Here will be store "how to"s and some Dockerfiles/docker-compose examples.
 
+For more details, access the [Docker docs](https://docs.docker.com/):
+
+- About volumes and mounting data: [https://docs.docker.com/engine/userguide/dockervolumes/](https://docs.docker.com/engine/userguide/dockervolumes/)
+
+- About Dockerfile: [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/)
+
+- About build images: [https://docs.docker.com/engine/reference/commandline/build/](https://docs.docker.com/engine/reference/commandline/build/)
+
 ## Run MongoDb server and client with Docker in different containers.
 
 **Server**
