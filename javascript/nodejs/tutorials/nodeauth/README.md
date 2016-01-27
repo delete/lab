@@ -1,6 +1,6 @@
 # Node Authentication: Setup and Local
 
-Code created following these tutorial:
+Code created following these tutorials:
 
 
 * Login [local]
