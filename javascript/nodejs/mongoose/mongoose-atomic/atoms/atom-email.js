@@ -5,7 +5,7 @@ const _validate = (v) => v.length > 3
 
 const Field = {
   type: String
-, set: _set
+, set: require('./quark-toLower')
 , validate: [_validate, 'Email({VALUE}) inválido.']
 , required: true
 }
