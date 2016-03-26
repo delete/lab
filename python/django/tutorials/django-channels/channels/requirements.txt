@@ -1,0 +1,5 @@
+
+Django
+channels
+asgi_redis
+haikunator
