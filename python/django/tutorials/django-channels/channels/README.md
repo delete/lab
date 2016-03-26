@@ -1,8 +1,7 @@
 # Django Channels example
 
-One to two paragraph statement about your product and what it does.
-
-
+[Tutorial here](https://blog.heroku.com/archives/2016/3/17/in_deep_with_django_channels_the_future_of_real_time_apps_in_django)
+[Oficial repo here](https://github.com/jacobian/channels-example)
 
 ## Installation
 
