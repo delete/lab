@@ -1,4 +1,4 @@
-# Here will be store "how to"s and some Dockerfiles/docker-compose examples.
+# Here will be stored "how to"s and some Dockerfiles/docker-compose examples.
 
 For more details, access the [Docker docs](https://docs.docker.com/):
 
