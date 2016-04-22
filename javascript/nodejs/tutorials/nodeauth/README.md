@@ -3,15 +3,15 @@
 Code created following these tutorials:
 
 
-* Login [local]
+- [x] Login [local]
 
-* Login with [facebook]
+- [ ] Login with [facebook]
 
-* Login with [twitter]
+- [ ] Login with [twitter]
 
-* Login with [google]
+- [ ] Login with [google]
 
-* All togethet [all]
+- [ ] All togethet [all]
 
 
 [local]: <https://scotch.io/tutorials/easy-node-authentication-setup-and-local>
