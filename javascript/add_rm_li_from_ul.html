@@ -1,91 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add and remove item from list</title>
+  <title>Add and remove item from list</title>
 </head>
 <body>
 
-	<ul class="list" id="mylist">
-	  <li class="list-item">
-	    <a id="item-1" href="#">Item 1</a> 
-	    <button>Del</button>
-	  </li>
-	  <li class="list-item">
-	    <a id="item-2" href="#">Item 2</a>
-	    <button>Del</button>
-	  </li>
-	  <li class="list-item">
-	    <a id="item-3" href="#">Item 3</a>
-	    <button>Del</button>
-	  </li>
-	</ul>
-	<button class="add">Add</button>
+  <ul class="list" id="mylist">
+    <li class="list-item">
+      <a id="item-1" href="#">Item 1</a> 
+      <button>Del</button>
+    </li>
+    <li class="list-item">
+      <a id="item-2" href="#">Item 2</a>
+      <button>Del</button>
+    </li>
+    <li class="list-item">
+      <a id="item-3" href="#">Item 3</a>
+      <button>Del</button>
+    </li>
+  </ul>
+  <button class="add">Add</button>
 
-	<script type="text/javascript">
-		/*
-			Script to add and remove item from an unordered list in HTML.
-		*/
+  <script type="text/javascript">
+    /*
+      Script to add and remove item from an unordered list in HTML.
+    */
 
-		// Generic function to add an event to an element
-		var addEvent = function (element, targetSelector, targetEvent, callback) {
-			element.addEventListener(targetEvent, function (event) {
-				var target = event.toElement || event.srcTarget || event.target || event.srcElement;
-				if ( target.matches(targetSelector) ) {
-					callback(target, event);
-				}
-			});
-		};
+    // Generic function to add an event to an element
+    var addEvent = function (element, targetSelector, targetEvent, callback) {
+      element.addEventListener(targetEvent, function (event) {
+        var target = event.toElement || event.srcTarget || event.target || event.srcElement;
+        if ( target.matches(targetSelector) ) {
+          callback(target, event);
+        }
+      });
+    };
 
-		var ul = document.getElementById('mylist');
+    var ul = document.getElementById('mylist');
 
-		addEvent(ul, 'button', 'click', function (element) {
-			// Cancel the previous event
-			event.preventDefault();
-			var child = element.parentNode;
-		    ul.removeChild(child)
-		});
+    addEvent(ul, 'button', 'click', function (element) {
+      // Cancel the previous event
+      event.preventDefault();
+      var child = element.parentNode;
+      ul.removeChild(child);
+    });
 
-		
-		var buttonAdd = document.querySelector('.add');
+    
+    var buttonAdd = document.querySelector('.add');
 
-		addEvent(buttonAdd, '.add', 'click', function (element) {
+    addEvent(buttonAdd, '.add', 'click', function (element) {
 
-		    var id = 0;
-		    
-		    var li = ul.querySelectorAll('li')
+      var id = 0;
+      
+      var li = ul.querySelectorAll('li');
 
-		    var length = li.length
+      var length = li.length;
 
+      if ( length ) {
+        // Get id from <a id=""> and parse to INT base 10
+        id = parseInt(li[length - 1].children[0].id.split('-')[1], 10);
+      }
 
-		    if ( length ) {
-			    // Get id from <a id=""> and parse to INT base 10
-			    id = parseInt(li[length - 1].children[0].id.split('-')[1], 10);
-		    }
+      // Get next item
+      id += 1;
 
-		    // Get next item
-		    id += 1
-
-		    var newli = document.createElement('li');
-		    newli.setAttribute('class', 'list-item');
-		    
-		    var newa = document.createElement('a');
-		    newa.setAttribute('href', '#');
-		    newa.setAttribute('id', 'item-' + id);
-		    
-		    var text = document.createTextNode('Item ' + id);
-		    newa.appendChild(text);
-		    
-		    newli.appendChild(newa);
-		    
-		    var butt = document.createElement('button');
-		    var text = document.createTextNode('Del');
-		    butt.appendChild(text);
-		    
-		    newli.appendChild(butt);
-		    
-		    ul.appendChild(newli);
-		});
-		
-	</script>
+      var newli = document.createElement('li');
+      newli.setAttribute('class', 'list-item');
+      
+      var newa = document.createElement('a');
+      newa.setAttribute('href', '#');
+      newa.setAttribute('id', 'item-' + id);
+      
+      var text = document.createTextNode('Item ' + id);
+      newa.appendChild(text);
+      
+      newli.appendChild(newa);
+      
+      var butt = document.createElement('button');
+      var text = document.createTextNode('Del');
+      
+      butt.appendChild(text);
+      newli.appendChild(butt);
+      ul.appendChild(newli);
+    });
+    
+  </script>
 </body>
 </html>
