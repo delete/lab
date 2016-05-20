@@ -1,131 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+<title></title>
 </head>
 <body>
 
-	<style type="text/css">
-		.anger {
-		   color: red;
-		}
+<style type="text/css">
+  .anger {
+     color: red;
+  }
 
-		.calm {
-		   color: green;
-		}
-	</style>
+  .calm {
+     color: green;
+  }
+</style>
 
-	<p>
-		Clock: <span id="cur_hour"></span>:<span id="cur_min"></span>:<span id="cur_sec"></span>
-	</p>
+<p>
+  Clock: <span id="cur_hour"></span>:<span id="cur_min"></span>:<span id="cur_sec"></span>
+</p>
 
-	<button id="changeColor">Change background color</button>
-
-
-	<p>
-		<button id="increase">INCREASE</button>
-		<button id="decrease">DECREASE</button>
-	</p>
-
-	<p id="textHere" class="calm">I'm Calm</p>
-
-	<button id="clique">Click</button>
+<button id="changeColor">Change background color</button>
 
 
-	<script type="text/javascript">
+<p>
+  <button id="increase">INCREASE</button>
+  <button id="decrease">DECREASE</button>
+</p>
 
-		// Generic function to add evento to an element
-		var addEvent = function (element, targetSelector, targetEvent, callback) {
-					element.addEventListener(targetEvent, function (event) {
-						var target = event.toElement || event.srcTarget || event.target || event.srcElement;
-						if ( target.matches(targetSelector) ) {
-							callback(target, event);
-						}
-					});
-				};
+<p id="textHere" class="calm">I'm Calm</p>
 
-		/* --------------------------------------------------------------- */
-		//
-		// Change background color
-		//
-
-		var btBgColor = document.getElementById('changeColor');
-
-		addEvent(btBgColor, '#changeColor', 'click', function (element) {
-		   
-		   document.body.style.background = '#' + Math.random().toString(16).slice(2, 8);
-		});
-
-		/* --------------------------------------------------------------- */
-		//
-		// Change class and text from an element
-		//
-
-		var textHere = document.getElementById('textHere');
-
-		var btChange = document.getElementById('clique');
-
-		addEvent(btChange, '#clique', 'click', function (element) {
-		   var att = textHere.getAttribute('class');
-		   
-		   if ( att === 'anger' ) {
-		      classe = 'calm';
-		      text = 'I\'m Calm';
-		   } else {
-		      classe = 'anger';
-		      text = 'I\'m Anger';
-		   }
-		   textHere.setAttribute('class', classe);
-		   textHere.innerHTML = text;
-		});
-
-		/* --------------------------------------------------------------- */
-		//
-		// Increase and Decrease font size from a text
-		//
+<button id="clique">Click</button>
 
 
-		var btIncrease = document.getElementById('increase');
-		var btDecrease = document.getElementById('decrease');
+<script type="text/javascript">
 
-		addEvent(btIncrease, '#increase', 'click', function (element) {
-			var textHere = document.getElementById('textHere');
-			
-			if ( !textHere.style.fontSize ) {
-				textHere.style.fontSize = '15px';
-			} 
-			
-			textHere.style.fontSize = parseInt(textHere.style.fontSize, 10) + 5 + 'px';
-		});
+  // Generic function to add evento to an element
+  var addEvent = function (element, targetSelector, targetEvent, callback) {
+        element.addEventListener(targetEvent, function (event) {
+          var target = event.toElement || event.srcTarget || event.target || event.srcElement;
+          if ( target.matches(targetSelector) ) {
+            callback(target, event);
+          }
+        });
+      };
+
+  /* --------------------------------------------------------------- */
+  //
+  // Change background color
+  //
+
+  var btBgColor = document.getElementById('changeColor');
+
+  addEvent(btBgColor, '#changeColor', 'click', function (element) {
+     
+     document.body.style.background = '#' + Math.random().toString(16).slice(2, 8);
+  });
+
+  /* --------------------------------------------------------------- */
+  //
+  // Change class and text from an element
+  //
+
+  var textHere = document.getElementById('textHere');
+
+  var btChange = document.getElementById('clique');
+
+  addEvent(btChange, '#clique', 'click', function (element) {
+     var att = textHere.getAttribute('class');
+     
+     if ( att === 'anger' ) {
+        classe = 'calm';
+        text = 'I\'m Calm';
+     } else {
+        classe = 'anger';
+        text = 'I\'m Anger';
+     }
+     textHere.setAttribute('class', classe);
+     textHere.innerHTML = text;
+  });
+
+  /* --------------------------------------------------------------- */
+  //
+  // Increase and Decrease font size from a text
+  //
 
 
-		addEvent(btDecrease, '#decrease', 'click', function (element) {
-			if ( !textHere.style.fontSize ) {
-				textHere.style.fontSize = '10px';
-			} 
-			textHere.style.fontSize = parseInt(textHere.style.fontSize, 10) - 5 + 'px';
-		});
+  var btIncrease = document.getElementById('increase');
+  var btDecrease = document.getElementById('decrease');
 
-		/* --------------------------------------------------------------- */
-		//
-		// Clock
-		//
-
-		(function time() {
-			var now = new Date()
-			var cur_hour = document.getElementById('cur_hour');
-			cur_hour.innerHTML = now.getHours();
-			var cur_min = document.getElementById('cur_min');
-			cur_min.innerHTML = now.getMinutes();
-			var cur_sec = document.getElementById('cur_sec');
-			cur_sec.innerHTML = now.getSeconds();
-			
-			t=setTimeout(function(){time()}, 500);
-		}());
-		
-	</script>
+  addEvent(btIncrease, '#increase', 'click', function (element) {
+    var textHere = document.getElementById('textHere');
+    
+    if ( !textHere.style.fontSize ) {
+      textHere.style.fontSize = '15px';
+    } 
+    
+    textHere.style.fontSize = parseInt(textHere.style.fontSize, 10) + 5 + 'px';
+  });
 
 
+  addEvent(btDecrease, '#decrease', 'click', function (element) {
+    if ( !textHere.style.fontSize ) {
+      textHere.style.fontSize = '10px';
+    } 
+    textHere.style.fontSize = parseInt(textHere.style.fontSize, 10) - 5 + 'px';
+  });
+
+  /* --------------------------------------------------------------- */
+  //
+  // Clock
+  //
+
+  (function time () {
+    var now = new Date()
+    var cur_hour = document.getElementById('cur_hour');
+    cur_hour.innerHTML = now.getHours();
+    var cur_min = document.getElementById('cur_min');
+    cur_min.innerHTML = now.getMinutes();
+    var cur_sec = document.getElementById('cur_sec');
+    cur_sec.innerHTML = now.getSeconds();
+    
+    t = setTimeout(function (){
+      time()
+    }, 500);
+  }());
+  
+</script>
 </body>
 </html>
 
