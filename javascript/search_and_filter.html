@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+  
+  <header class="header">
+    <div class="container">
+      <div class="col-lg-12">
+        <div class="input-group">
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" id="bt-search" placeholder="Search for...">
+            </div>
+            <div class="form-group">
+              <select class="form-control" id="gender-select">
+                <option value="gender">Gender</option>
+                <option value="woman">Women</option>
+                <option value="man">Men</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+        <div class="panel-heading item-gender">Man</div>
+        <div class="panel-body item-content">
+          Fellipe
+        </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading item-gender">Man</div>
+          <div class="panel-body item-content">
+          Pedro
+        </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading item-gender">Man</div>
+          <div class="panel-body item-content">
+          Ricardo
+        </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading item-gender">Man</div>
+          <div class="panel-body item-content">
+          Rafael
+        </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading item-gender">Woman</div>
+          <div class="panel-body item-content">
+          Tatiana
+        </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading item-gender">Woman</div>
+          <div class="panel-body item-content">
+          Priscila
+        </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading item-gender">Woman</div>
+          <div class="panel-body item-content">
+          Claudia
+        </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading item-gender">Woman</div>
+          <div class="panel-body item-content">
+          Aline
+        </div>
+        </div>
+    </div>
+    
+  </div>
+  <script>
+  'use strict'
+    function createItensHiddenList(itens) {
+      var resultList = [];
+      Array.prototype.forEach.call(itens, function (item) {
+        resultList.push(item);
+        item.style.display = 'none'
+      });
+      return resultList
+    }
+
+    function showItens(itens) {
+      itens.forEach(function (item) {
+        item.style.display = ''
+      });
+    }
+
+    function getGender(item, input) {
+      return item.querySelector('.item-gender').textContent.toLowerCase() == input.value;
+    }
+
+    function getContent(item, input) {
+      return item.querySelector('.item-content').textContent.toLowerCase().match(new RegExp('.*' + input.value + '.*'));
+    }
+
+    document.querySelector('#bt-search').addEventListener('input', function (event) {
+      var input = event.target;
+      var itens = document.querySelectorAll('.panel-default');
+      var select = document.getElementById('gender-select');
+      
+      var resultList = createItensHiddenList(itens);
+
+      function filterByGenderAndContent(item) {
+        if (select.value == 'gender') {
+          return getContent(item, input);
+        }else {
+          if (getGender(item, select) && getContent(item, input)) {
+            return true;
+          } 
+        }
+      }
+
+      resultList = resultList.filter(filterByGenderAndContent);
+
+      showItens(resultList);
+    });
+
+    document.querySelector('#gender-select').addEventListener('click', function (event) {
+      var input = event.target;
+      var itens = document.querySelectorAll('.panel-default');
+
+      var resultList = createItensHiddenList(itens);
+
+      function filterByGender(item) {
+        return getGender(item, input);
+      }
+
+      if (input.value != 'gender') {
+        resultList = resultList.filter(filterByGender);
+      }
+
+      showItens(resultList);
+    });
+  </script>
+
+</body>
+</html>
