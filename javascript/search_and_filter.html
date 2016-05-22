@@ -117,9 +117,7 @@
         if (select.value == 'gender') {
           return getContent(item, input);
         }else {
-          if (getGender(item, select) && getContent(item, input)) {
-            return true;
-          } 
+          return getGender(item, select) && getContent(item, input); 
         }
       }
 
