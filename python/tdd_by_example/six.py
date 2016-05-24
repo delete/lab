@@ -54,7 +54,7 @@ class TestResult:
         self.failureCount += 1
 
     def summary(self):
-        return "%d run, %d failed" % (self.failureCount)
+        return "%d run, %d failed" % (self.runCount, self.failureCount)
 
 
 class TestCaseTest(TestCase):
@@ -71,7 +71,7 @@ class TestCaseTest(TestCase):
     def testFailedResult(self):
         test = WasRun("testBrokenMethod")
         result = test.run()
-        assert("1, run, 1 failed" == result.summary())
+        assert("1 run, 1 failed" == result.summary())
 
     def testFailedResultFormatting(self):
         result = TestResult()
@@ -79,7 +79,7 @@ class TestCaseTest(TestCase):
         result.testFailed()
         assert("1 run, 1 failed" == result.summary())
 
-TestCaseTest("testTemplateMethod").run()
-TestCaseTest("testResult").run()
-TestCaseTest("testFailedResult").run()
-TestCaseTest("testFailedResultFormatting").run()
+print TestCaseTest("testTemplateMethod").run().summary()
+print TestCaseTest("testResult").run().summary()
+print TestCaseTest("testFailedResult").run().summary()
+print TestCaseTest("testFailedResultFormatting").run().summary()
