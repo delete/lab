@@ -1,0 +1,1 @@
+Code example from Part II of `Test Driven Development: By example` book.
