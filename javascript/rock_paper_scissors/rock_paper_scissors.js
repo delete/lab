@@ -28,17 +28,29 @@ function getComputerChoice () {
 
 function displayResults (playerChoice, compChoice) {
     
-    changeImages(playerChoice, compChoice);
-    
-    if ( playerChoice == compChoice ) {
-      setResultMessage('Tie!', 'tie');
+  changeImages(playerChoice, compChoice);
+  
+  if ( playerChoice == compChoice ) {
+    setResultMessage('Tie!', 'tie');
 
-    } else if ( (playerChoice === 'rock' && compChoice === 'scissors') || (playerChoice === 'paper' && compChoice === 'rock') || (playerChoice === 'scissors' && compChoice === 'paper')) {
+  } else if ( (isRock(playerChoice) && isScissors(compChoice)) || 
+    (isPaper(playerChoice) && isRock(compChoice)) || 
+    (isScissors(playerChoice) && isPaper(compChoice)) ) {
       setResultMessage('You Win!', 'win');
 
-    } else {
-      setResultMessage('You Lose!', 'lose');
-    }
+  } else {
+    setResultMessage('You Lose!', 'lose');
+  }
+
+  function isRock(choice) {
+    return choice === 'rock'
+  }
+  function isScissors(choice){
+    return choice === 'scissors'
+  }
+  function isPaper(choice) {
+    return choice === 'paper'
+  }
 
 };
 
