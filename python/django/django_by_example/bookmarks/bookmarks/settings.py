@@ -38,6 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'images',
+    'sorl.thumbnail',
+    # Should be the last one
     'django.contrib.admin',
 )
 
