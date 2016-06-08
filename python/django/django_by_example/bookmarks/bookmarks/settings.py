@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'account',
     'images',
     'sorl.thumbnail',
+    'actions',
     # Should be the last one
     'django.contrib.admin',
 )
