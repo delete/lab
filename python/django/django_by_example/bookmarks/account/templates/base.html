@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>{% block title %}{% endblock %}</title>
-    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
   </head>
   <body>
     <div id="header">
@@ -45,8 +45,8 @@
       {% endblock %}
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src=" http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js "></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.cookie.min.js' %}"></script>
     <script>
       var csrftoken = $.cookie('csrftoken');
       function csrfSafeMethod(method) {
