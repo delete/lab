@@ -4,7 +4,7 @@ from django.conf import settings
 from shop.models import Product
 
 
-class Cart:
+class Cart(object):
 
     def __init__(self, request):
         """
