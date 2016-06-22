@@ -10,4 +10,9 @@ urlpatterns = [
         views.admin_order_detail,
         name='admin_order_detail'
     ),
+    url(
+        r'^admin/order/(?P<order_id>\d+)/pdf/$',
+        views.admin_order_pdf,
+        name='admin_order_pdf'
+    ),
 ]
