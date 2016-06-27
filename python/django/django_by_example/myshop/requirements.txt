@@ -4,3 +4,4 @@ django-rosetta==0.7.6
 Pillow==3.2.0
 pytz==2016.4
 WeasyPrint==0.24
+django-parler==1.5.1

@@ -11,7 +11,12 @@ def product_list(request, category_slug=None):
     products = Product.objects.filter(avaiable=True)
 
     if category_slug:
-        category = get_object_or_404(Category, slug=category_slug)
+        language = request.LANGUAGE_CODE
+        category = get_object_or_404(
+            Category,
+            translations__language_code=language,
+            translations__slug=category_slug
+        )
         products = products.filter(category=category)
 
     return render(
@@ -21,7 +26,14 @@ def product_list(request, category_slug=None):
 
 
 def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, avaiable=True)
+    language = request.LANGUAGE_CODE
+    product = get_object_or_404(
+        Product,
+        id=id,
+        translations__language_code=language,
+        translations__slug=slug,
+        avaiable=True
+    )
 
     cart_product_form = CartAddProductForm()
     return render(
