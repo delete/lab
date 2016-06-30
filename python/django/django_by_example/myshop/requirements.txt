@@ -6,3 +6,4 @@ pytz==2016.4
 WeasyPrint==0.24
 django-parler==1.5.1
 django-localflavor==1.1
+redis==2.10.3

@@ -144,3 +144,9 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+
+# Redis settings
+
+REDIS_HOST = '172.17.0.1'
+REDIS_PORT = 6379
+REDIS_DB = 1
