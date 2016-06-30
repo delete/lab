@@ -10,3 +10,4 @@ This folder has the codes examples from the book.
 * [Codes from chapter 6](https://github.com/delete/lab/tree/chapter6/python/django/django_by_example)
 * [Codes from chapter 7](https://github.com/delete/lab/tree/chapter7/python/django/django_by_example)
 * [Codes from chapter 8](https://github.com/delete/lab/tree/chapter8/python/django/django_by_example)
+* [Codes from chapter 9](https://github.com/delete/lab/tree/chapter9/python/django/django_by_example)
