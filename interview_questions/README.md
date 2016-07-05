@@ -14,7 +14,7 @@ A list of problems found at [reddit](https://www.reddit.com/r/cscareerquestions/
 
 - [ ] Find the common elements of 2 int arrays
 
-- [ ] Implement binary search of a sorted array of integers
+- [x] Implement binary search of a sorted array of integers
 
 - [ ] Implement binary search in a rotated array (ex. {5,6,7,8,1,2,3})
 
