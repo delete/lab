@@ -10,7 +10,7 @@ A list of problems found at [reddit](https://www.reddit.com/r/cscareerquestions/
 
 - [ ] Write fibbonaci iteratively and recursively (bonus: use dynamic programming)
 
-- [ ] Find the only element in an array that only occurs once.
+- [x] Find the only element in an array that only occurs once. - [Py](general/occurs_once.py)
 
 - [ ] Find the common elements of 2 int arrays
 
