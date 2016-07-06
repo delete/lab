@@ -2,7 +2,7 @@
 A list of problems found at [reddit](https://www.reddit.com/r/cscareerquestions/comments/20ahfq/heres_a_pretty_big_list_of_programming_interview/)
 
 ##General
-- [ ] Find the most frequent integer in an array
+- [x] Find the most frequent integer in an array - [Py](general/most_frequent.py)
 
 - [ ] Find pairs in an integer array whose sum is equal to 10 (bonus: do it in linear time)
 
