@@ -113,7 +113,7 @@ A list of problems found at [reddit](https://www.reddit.com/r/cscareerquestions/
 
 ##Sorting
 
-- [ ] Implement bubble sort
+- [x] Implement bubble sort - [Py](sorting/bubble_sort.py)
 
 - [ ] Implement selection sort
 
