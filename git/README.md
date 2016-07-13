@@ -38,9 +38,9 @@ Access the server using SSH and follow the commands:
 ### Server side
 
 Create a directory to the app:
-`cd /myapps && makedir app.git && app.git`
+`cd /myapps && mkdir app.git && app.git`
 
-Initiate git bare reposiory:
+Initiate git bare repository:
 `git init --bare`
 
 Set hooks up:
