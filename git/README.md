@@ -9,6 +9,16 @@ $ git reset --hard 8719a98b...
 $ git push --force origin master
 ```
 
+## Move last commit no another branch
+
+```sh
+git checkout existingbranch
+git merge master
+git checkout master
+git reset --hard HEAD~1 # Go back 1 commits. You *will* lose uncommitted work.
+git checkout existingbranch
+```
+
 ## Change branch after of edited some files
 ```sh
 $ git stash 
