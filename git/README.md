@@ -41,6 +41,12 @@ $ git commit --amend --no-edit
 ```
 > "--no-edit" parameter fixes the file without change the commit message
 
+## Force pull request overwrite local files
+
+```sh
+$ git fetch --all
+$ git reset --hard origin/<branch_name>
+```
 
 ## Simple deploy with GIT
 Access the server using SSH and follow the commands:
